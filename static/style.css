@@ -1,0 +1,114 @@
+/* style.css */
+body {
+  background: #1a1a1a;
+  color: #fff;
+  font-family: Monaco;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.list-movies-title {
+  padding: 10px 0;
+  background: #ff0000;
+  color: #fff;
+  text-align: center;
+  font-size: 20px;
+}
+
+.movie-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.movie-grid li {
+  width: 30%;
+  padding: 10px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.movie-details {
+  margin-top: 10px;
+  font-size: 14px;
+  text-align: left;
+}
+
+.movie-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.movie-year {
+  font-size: 14px;
+  color: #999;
+  margin-bottom: 5px;
+}
+
+.movie-poster {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  width: 100%;
+  max-height: 280px;
+  border-radius: 5px;
+}
+
+.movie-rating {
+  font-size: 14px;
+  background-color: #ff0000;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 20px;
+  margin-top: 5px;
+}
+
+.delete-user-button,
+.delete-button,
+.add-movie-button,
+.button-blue,
+.button-green {
+  display: inline-block;
+  padding: 8px 15px;
+  font-size: 12px;
+  background-color: #CC0000;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  text-decoration: none;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+.button-blue {
+  background-color: #CC0000;
+}
+
+.button-green {
+  background-color: #28a745;
+}
+
+.button-blue:hover,
+.button-green:hover {
+  background-color: #004080;
+}
+
+.link {
+  display: inline-block;
+  margin-bottom: 10px;
+  text-decoration: none;
+  color: #007bff;
+}
+
+.link:hover {
+  text-decoration: underline;
+}

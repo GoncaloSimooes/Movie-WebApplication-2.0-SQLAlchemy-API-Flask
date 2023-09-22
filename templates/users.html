@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Users - MovieWeb App</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            background: #222;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .users-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .user-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .user-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid #444;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .user-details {
+            flex: 1;
+        }
+
+        .user-name {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .user-actions {
+            flex: 0;
+        }
+
+        .delete-user-button {
+            background-color: #FF0000;
+            color: #fff;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .delete-user-button:hover {
+            background-color: #CC0000;
+        }
+
+        .add-user-button {
+            display: inline-block;
+            padding: 10px 15px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-bottom: 10px;
+        }
+
+        .add-user-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="users-title">MovieWeb App User's</h1>
+        <ul class="user-list">
+            {% for user in users %}
+            <li class="user-item">
+                <div class="user-details">
+                    <span class="user-name">{{ user['name'] }}</span>
+                </div>
+                <div class="user-actions">
+                    <a href="{{ url_for('get_user_movies', user_id=user['ID']) }}" class="delete-user-button">View Movies</a>
+                    <a href="{{ url_for('delete_user', user_id=user['ID']) }}" class="delete-user-button">Delete User</a>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+        <a href="{{ url_for('add_user') }}" class="add-user-button">Add New User</a>
+    </div>
+</body>
+</html>
+
+
+

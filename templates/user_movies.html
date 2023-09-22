@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movies - MovieWeb App</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="list-movies-title">My fav Movies</h1>
+        <ul class="movie-grid">
+            {% for movie in user_movies %}
+            <li>
+                <div class="movie-item">
+                    <a href="https://www.imdb.com/title/{{ movie['imdb_ID'] }}" target="_blank">
+                        <img src="{{ movie['poster_url'] }}" alt="{{ movie['title'] }} Poster" class="movie-poster">
+                    </a>
+                    <div class="movie-details">
+                        <h3 class="movie-title">{{ movie['title'] }}</h3>
+                        <p class="movie-year"><strong>Year:</strong> {{ movie['year'] }}</p>
+                        <p class="movie-rating"><strong>Rating:</strong> {{ movie['rating'] }}</p>
+                    </div>
+                    <form action="{{ url_for('delete_movie', user_id=user_id, movie_id=movie['imdb_ID']) }}" method="POST">
+                        <button type="submit" class="delete-button">Delete</button>
+                    </form>
+                    <a href="{{ url_for('update_movie', user_id=user_id, movie_id=movie['imdb_ID']) }}" class="button-blue">Update</a>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+        <a href="{{ url_for('get_user_movies', user_id=user_id) }}" class="button">Back to Movies</a>
+        <a href="{{ url_for('list_users') }}" class="button">Back to Users</a>
+
+
+    </div>
+</body>
+</html>

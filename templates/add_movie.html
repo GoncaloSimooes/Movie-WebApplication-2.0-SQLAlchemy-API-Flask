@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Movie - MovieWeb App</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            background-image: url("{{ url_for('static', filename='Hollywood2.jpg') }}");
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body>
+    <a href="{{ url_for('get_user_movies', user_id=user_id) }}" class="button">Back to Movies</a>
+    <h1>Add Movie</h1>
+    <form action="{{ url_for('add_movie', user_id=user_id) }}" method="POST" class="add-movie-form">
+        <label for="movie_title">Movie Title:</label>
+        <input type="text" id="movie_title" name="movie_title" required>
+        <button type="submit" class="add-movie-button">Add Movie</button>
+    </form>
+</body>
+</html>
