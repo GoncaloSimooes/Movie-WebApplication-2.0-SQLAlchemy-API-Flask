@@ -1,114 +1,156 @@
-/* style.css */
 body {
-  background: #1a1a1a;
-  color: #fff;
-  font-family: Monaco;
-  margin: 0;
-  padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
+    font-family: "Arial", sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 .container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
+    padding: 20px;
 }
 
 .list-movies-title {
-  padding: 10px 0;
-  background: #ff0000;
-  color: #fff;
-  text-align: center;
-  font-size: 20px;
+    padding: 10px 0;
+    background: #333;
+    color: #fff;
+    text-align: center;
+    font-size: 24px;
+    border-radius: 5px;
 }
 
 .movie-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  list-style: none;
-  padding: 0;
-  margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .movie-grid li {
-  width: 30%;
-  padding: 10px;
-  box-sizing: border-box;
-  text-align: center;
+    width: 30%;
+    margin-bottom: 20px;
+    text-align: center;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.movie-details {
-  margin-top: 10px;
-  font-size: 14px;
-  text-align: left;
+.movie-grid li:hover {
+    transform: scale(1.02);
+    transition: transform 0.3s ease-in-out;
 }
 
-.movie-title {
-  font-size: 16px;
-  font-weight: bold;
-  margin-bottom: 5px;
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #fff;
 }
 
-.movie-year {
-  font-size: 14px;
-  color: #999;
-  margin-bottom: 5px;
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
 }
 
-.movie-poster {
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  width: 100%;
-  max-height: 280px;
-  border-radius: 5px;
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: #fff;
 }
 
-.movie-rating {
-  font-size: 14px;
-  background-color: #ff0000;
-  color: #fff;
-  padding: 5px 10px;
-  border-radius: 20px;
-  margin-top: 5px;
+.btn-danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
 }
 
-.delete-user-button,
-.delete-button,
-.add-movie-button,
-.button-blue,
-.button-green {
-  display: inline-block;
-  padding: 8px 15px;
-  font-size: 12px;
-  background-color: #CC0000;
-  color: #fff;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  text-decoration: none;
-  margin-right: 5px;
-  margin-bottom: 5px;
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+    color: #fff;
 }
 
-.button-blue {
-  background-color: #CC0000;
+.btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
 }
 
-.button-green {
-  background-color: #28a745;
+.btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    color: #fff;
 }
 
-.button-blue:hover,
-.button-green:hover {
-  background-color: #004080;
+.btn-secondary:hover {
+    background-color: #545b62;
+    border-color: #4e555b;
 }
 
-.link {
-  display: inline-block;
-  margin-bottom: 10px;
-  text-decoration: none;
-  color: #007bff;
+.btn-warning {
+    background-color: #ffc107;
+    border-color: #ffc107;
+    color: #333;
 }
 
-.link:hover {
-  text-decoration: underline;
+.btn-warning:hover {
+    background-color: #ffab00;
+    border-color: #ffab00;
+}
+
+.btn-info {
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+    color: #fff;
+}
+
+.btn-info:hover {
+    background-color: #138496;
+    border-color: #117a8b;
+}
+
+.btn-link {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.btn-link:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* Formulário de revisão */
+.form-review {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-review label {
+    font-weight: bold;
+}
+
+.form-review input[type="text"],
+.form-review input[type="number"],
+.form-review textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.form-review button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    border-color: #28a745;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.form-review button:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
 }

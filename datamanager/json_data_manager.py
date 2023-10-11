@@ -1,7 +1,7 @@
 import json
 from abc import ABC
 import requests
-from datamanager.data_manager_interface import DataManagerInterface
+from data_manager_interface import DataManagerInterface
 
 api_request = "http://www.omdbapi.com/?apikey=1c26b87f"
 

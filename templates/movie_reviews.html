@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movie Reviews - MovieWeb App</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="list-movies-title">Movie Reviews</h1>
+        <!-- Exiba as avaliações existentes do filme aqui -->
+        <div class="existing-reviews">
+            <h2>Existing Reviews:</h2>
+            <ul class="review-list"> <!-- Use a classe "review-list" para exibir as revisões em formato de lista -->
+                {% if reviews %}
+                {% for review in reviews %}
+                <li class="review-item"> <!-- Use a classe "review-item" para cada revisão -->
+                    <div class="existing-review">
+                        <h3 class="review-title">Review {{ loop.index }}</h3>
+                        <p class="review-text">{{ review.review_text }}</p> <!-- Exiba o texto da revisão -->
+                        <p class="review-rating"><strong>Rating:</strong> {{ review.rating }}</p>
+                        <!-- Botão para deletar a revisão atual -->
+                        <form action="{{ url_for('delete_review', user_id=user_id, movie_id=movie.movie_id, review_id=review.review_id) }}" method="POST">
+                            <button type="submit" class="btn btn-danger">Delete Review</button>
+                        </form>
+                        <!-- Botão para atualizar a revisão atual -->
+                        <a href="{{ url_for('update_review', user_id=user_id, movie_id=movie.movie_id, review_id=review.review_id) }}" class="btn btn-primary">Update Review</a>
+                    </div>
+                </li>
+                {% endfor %}
+                {% else %}
+                <li>No reviews found.</li> <!-- Caso nenhuma revisão seja encontrada -->
+                {% endif %}
+            </ul>
+        </div>
+
+        <!-- Botão para adicionar uma nova revisão -->
+        <a href="{{ url_for('add_review', user_id=user_id, movie_id=movie.movie_id) }}" class="btn btn-success">Add Review</a>
+
+        <a href="{{ url_for('get_user_movies', user_id=user_id) }}" class="btn btn-secondary">Back to Movies</a>
+    </div>
+
+    <!-- Bootstrap Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

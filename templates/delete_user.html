@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Delete User</title>
+    <title>Delete User - MovieWeb App</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Delete User</h1>
-    <p>Are you sure you want to delete user with ID: {{ user_id }}?</p>
-    <form action="{{ url_for('delete_user', user_id=user_id) }}" method="post">
-        <input type="submit" value="Delete">
-    </form>
+    <div class="container">
+        <h1 class="list-movies-title">Delete User - MovieWeb App</h1>
+        <p>Are you sure you want to delete user with ID: {{ user_id }}?</p>
+        <form action="{{ url_for('delete_user', user_id=user_id) }}" method="post">
+            <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+    </div>
 </body>
 </html>

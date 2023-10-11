@@ -2,35 +2,47 @@
 <html>
 <head>
     <title>Movies - MovieWeb App</title>
+    <meta charset="UTF-8"> <!-- Defining character encoding -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .list-movies-title {
+            border-bottom: 3px solid #007bff; /* Linha de título mais grossa */
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <h1 class="list-movies-title">My fav Movies</h1>
+        <h1 class="list-movies-title">My Favorite Movies</h1>
         <ul class="movie-grid">
             {% for movie in user_movies %}
             <li>
                 <div class="movie-item">
-                    <a href="https://www.imdb.com/title/{{ movie['imdb_ID'] }}" target="_blank">
-                        <img src="{{ movie['poster_url'] }}" alt="{{ movie['title'] }} Poster" class="movie-poster">
+                    <a href="https://www.imdb.com/title/{{ movie['imdbID'] }}" target="_blank">
+                        <img src="{{ movie['poster'] }}" alt="{{ movie['title'] }} Poster" class="movie-poster">
                     </a>
                     <div class="movie-details">
                         <h3 class="movie-title">{{ movie['title'] }}</h3>
                         <p class="movie-year"><strong>Year:</strong> {{ movie['year'] }}</p>
                         <p class="movie-rating"><strong>Rating:</strong> {{ movie['rating'] }}</p>
                     </div>
-                    <form action="{{ url_for('delete_movie', user_id=user_id, movie_id=movie['imdb_ID']) }}" method="POST">
-                        <button type="submit" class="delete-button">Delete</button>
+                    <form action="{{ url_for('delete_movie', user_id=user_id, movie_id=movie['movie_id']) }}" method="POST">
+                        <button type="submit" class="btn btn-danger">Delete</button>
                     </form>
-                    <a href="{{ url_for('update_movie', user_id=user_id, movie_id=movie['imdb_ID']) }}" class="button-blue">Update</a>
+                    <a href="{{ url_for('update_movie', user_id=user_id, movie_id=movie['movie_id']) }}" class="btn btn-primary">Update</a>
+                    <a href="{{ url_for('movie_reviews', user_id=user_id, movie_id=movie['movie_id']) }}" class="btn btn-secondary">Reviews</a> <!-- Botão "Reviews" -->
                 </div>
             </li>
             {% endfor %}
         </ul>
-        <a href="{{ url_for('get_user_movies', user_id=user_id) }}" class="button">Back to Movies</a>
-        <a href="{{ url_for('list_users') }}" class="button">Back to Users</a>
-
-
+        <a href="{{ url_for('get_user_movies', user_id=user_id) }}" class="btn btn-secondary">Back to Movies</a>
+        <a href="{{ url_for('list_users') }}" class="btn btn-secondary">Back to Users</a>
+        <a href="{{ url_for('add_movie', user_id=user_id) }}" class="btn btn-primary">Add Movie</a>
     </div>
+
+    <!-- Bootstrap Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

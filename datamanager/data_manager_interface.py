@@ -33,3 +33,13 @@ class DataManagerInterface(ABC):
     @abstractmethod
     def update_movie(self, user_id, movie_id, new_title, new_rating):
         pass
+
+    @abstractmethod
+    def add_review(self, user_id, movie_id, review_text, rating):
+        pass
+
+    @abstractmethod
+    def get_reviews_for_movie(self, movie_id):
+        pass
+
+

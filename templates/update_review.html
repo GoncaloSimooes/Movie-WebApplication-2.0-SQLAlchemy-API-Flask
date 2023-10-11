@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Review - MovieWeb App</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="list-movies-title">Update Review</h1>
+        <a href="{{ url_for('home') }}" class="btn btn-primary">Back to Home</a>
+        <a href="{{ url_for('get_user_movies', user_id=user_id) }}" class="btn btn-secondary">Back to Movies</a>
+        <form action="{{ url_for('update_review', user_id=user_id, movie_id=movie_id, review_id=review) }}" method="POST">
+            <div class="form-group">
+                <label for="new_review_text">New Review Text:</label>
+                <textarea class="form-control" id="new_review_text" name="new_review_text" rows="4" required>{{ review.review_text }}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="new_rating">New Rating:</label>
+                <input type="number" class="form-control" id="new_rating" name="new_rating" min="1" max="10" value="{{ review.rating }}" required>
+            </div>
+            <button type="submit" class="btn btn-success">Update Review</button>
+        </form>
+    </div>
+</body>
+</html>
